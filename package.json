@@ -1,0 +1,30 @@
+{
+  "name": "App-point",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marksong0917/App-Point.git"
+  },
+  "keywords": [],
+  "author": "Linh Duong <linhduong2399@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marksong0917/App-Point/issues"
+  },
+  "homepage": "https://github.com/marksong0917/App-Point#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.14",
+    "nodemon": "^2.0.7"
+  }
+}
