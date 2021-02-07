@@ -142,7 +142,24 @@ const validateUsername = async username => {
     };
   };
 
-  exports.delete = (req, res) => {req.logout();
+  exports.create = (req, res, next) => {
+    passport.authenticate('local', (err, user) =>{
+     if (err || !user) {
+       console.error(err);
+   
+       return res.status(401).json({
+         status: 'failed',
+         message: 'Not authorized',
+         error: err
+       });
+     }
+     return userLogin(userCreds, role, res)
+    })(req,res,next);
+   };
+
+
+  exports.delete = (req, res) => {
+    req.logout();
     res.redirect('/');
   };
   

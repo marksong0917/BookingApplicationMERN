@@ -25,6 +25,13 @@ mongoose.connect(process.env.DB_URI, {
   console.error(`Error: ${err}`)
 });
 
+const session = require('express-session');
+app.use(session({
+  secret: 'I don\'t know',
+  resave: true,
+  saveUninitialized: false
+}));
+
 /**Middleware */
 
 app.use(cors());

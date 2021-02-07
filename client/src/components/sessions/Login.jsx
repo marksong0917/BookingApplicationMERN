@@ -16,13 +16,16 @@ const Login = ({setUser}) => {
         try{
                 const resp = await Axios.post('/api/users/login-user', 
                 inputs);
+                console.log(resp);
             if (resp.status=== 200){
+                
                 setUser(resp.data.user)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS
                 });
                 setRedirect(true)
             } else {
+                console.log(resp.data.user);
                 toast('There was an issue logging you in. Please check your credentials', {
                     type: toast.TYPE.ERROR
                 });
