@@ -3,7 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { Form, Container } from 'react-bootstrap';
 
 
-{/**
+
 import { useState } from 'react';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
@@ -25,7 +25,7 @@ const Register = ({setUser}) => {
 
     try {
       const resp = await Axios.post('/api/users/register-user', inputs);
-
+      console.log(resp.status);
       if (resp.status === 200) {
         setUser(resp.data.user);
         sessionStorage.setItem('user', JSON.stringify(resp.data.user));
@@ -34,7 +34,7 @@ const Register = ({setUser}) => {
         });
         setRedirect(true);
       } else {
-        toast("There was an issue registering you.", {
+        toast(resp.status+"There was an issue registering you.", {
           type: toast.TYPE.ERROR
         });
       }
@@ -58,22 +58,22 @@ const Register = ({setUser}) => {
 
   if (redirect) {
     return (<Redirect to="/"/>);
-  } */}
+  } 
   
-function Register() {
+
     return (
         <MDBContainer>
             <MDBRow>
                 <MDBCol md="6">
-                    <Form> {/* add this once we can use onSubmit: onSubmit={handleSubmit} */}
-                        <p className="h4 text-center mb-4">Register</p>
+                    <Form onSubmit={handleSubmit} > {/* add this once we can use onSubmit: onSubmit={handleSubmit} */}
+                        <p className="h4 text-center mb-4" >Register</p>
 
                         <Form.Group>
                             <label htmlFor="defaultFormRegisterNameEx" className="grey-text" name="firstName">
                                 First Name
                             </label>
                             {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.firstName} */}
-                            <Form.Control type="text" id="defaultFormRegisterNameEx" className="form-control" name="firstName"/>
+                            <Form.Control onChange={handleInputChange} value={inputs.firstName} type="text" id="defaultFormRegisterNameEx" className="form-control" name="firstName"/>
                         </Form.Group>
 
                         <Form.Group>
@@ -81,29 +81,22 @@ function Register() {
                             Last Name
                         </label>
                         {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.lastName} */}
-                        <Form.Control type="text" id="defaultFormRegisterNameEx" className="form-control" name="lastName"/>
+                        <Form.Control onChange={handleInputChange} value={inputs.lastName} type="text" id="defaultFormRegisterNameEx" className="form-control" name="lastName"/>
                         </Form.Group>
-
-                        <Form.Group>
-                        <label htmlFor="defaultFormRegisterNameEx" className="grey-text" name="role">
-                            Role
-                        </label>
-                        <div>
-                            {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.role} */}
-                            <Form.Control as="select" className="browser-default custom-select" name="role">
-                                <option value="1">user</option>
-                                <option value="2">admin</option>
-                                <option value="3">merchant</option>
-                            </Form.Control>
-                        </div>
-                        </Form.Group>
-                        
                         <Form.Group>
                         <label htmlFor="defaultFormRegisterEmailEx" className="grey-text" name="email">
                             Your email
                         </label>
                         {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.email} */}
-                        <Form.Control type="email" id="defaultFormRegisterEmailEx" className="form-control" />
+                        <Form.Control onChange={handleInputChange} value={inputs.email} type="email" id="defaultFormRegisterEmailEx" className="form-control" name="email"/>
+                        </Form.Group>
+
+                        <Form.Group>
+                        <label htmlFor="defaultFormRegisterNameEx" className="grey-text" name="username">
+                            Username
+                        </label>
+                        {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.lastName} */}
+                        <Form.Control onChange={handleInputChange} value={inputs.username} type="text" id="defaultFormRegisterNameEx" className="form-control" name="username"/>
                         </Form.Group>
 
                         <Form.Group>
@@ -111,12 +104,7 @@ function Register() {
                             Your password
                         </label>
                         {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.password} */}
-                        <Form.Control type="password" id="defaultFormRegisterPasswordEx" className="form-control" name="password"/>
-                        </Form.Group>
-
-                        <Form.Group>
-                            <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">Password Confirmation:</label>
-                            <Form.Control type="password" id="defaultFormRegisterPasswordEx" className="form-control" name="passwordConfirmation"/>
+                        <Form.Control onChange={handleInputChange} value={inputs.password} type="password" id="defaultFormRegisterPasswordEx" className="form-control" name="password"/>
                         </Form.Group>
 
                         <div className="text-center mt-4">
@@ -133,6 +121,5 @@ function Register() {
             </MDBRow>
         </MDBContainer>
     );
-    };
-
+  };
 export default Register;

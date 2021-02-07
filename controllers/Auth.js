@@ -23,6 +23,7 @@ const userRegister = async (userDets, role, res) => {
     if (!emailNotRegistered) {
       return res.status(400).json({
         message: `Email is already registered.`,
+        
         success: false
       });
     }
@@ -37,7 +38,7 @@ const userRegister = async (userDets, role, res) => {
     });
 
     await newUser.save();
-    return res.status(201).json({
+    return res.status(200).json({
       message: "Hurry! now you are successfully registred. Please nor login.",
       success: true
     });
