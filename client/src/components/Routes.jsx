@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
 import Login from './sessions/Login';
+import Register from './sessions/Register';
 
 function Routes ({user,setUser}) {
     return (
@@ -16,6 +17,7 @@ function Routes ({user,setUser}) {
                 setUser={setUser}
               />
             }/>
+            <Route exact path="/register" component={Register}/>
            </Switch> 
     );
 }
