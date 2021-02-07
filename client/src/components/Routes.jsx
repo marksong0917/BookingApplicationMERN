@@ -17,7 +17,7 @@ function Routes ({user,setUser}) {
                 setUser={setUser}
               />
             }/>
-            <Route exact path="/register" component={Register}/>
+            <Route exact path="/register-user" component={Register}/>
            </Switch> 
     );
 }
