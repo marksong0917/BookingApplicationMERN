@@ -84,7 +84,7 @@ const userLogin = async (userCreds, role, res) => {
         email: user.email
       },
       SECRET,
-      { expiresIn: "7 days" }
+      { expiresIn: "3 hours" }
     );
 
     let result = {
@@ -92,7 +92,7 @@ const userLogin = async (userCreds, role, res) => {
       role: user.role,
       email: user.email,
       token: `Bearer ${token}`,
-      expiresIn: 168
+      expiresIn: 3
     };
 
     return res.status(200).json({
@@ -143,31 +143,23 @@ const validateUsername = async username => {
     };
   };
 
-  exports.create = (req, res, next) => {
-    passport.authenticate('local', (err, user) =>{
-     if (err || !user) {
-       console.error(err);
-   
-       return res.status(401).json({
-         status: 'failed',
-         message: 'Not authorized',
-         error: err
-       });
-     }
-     return userLogin(userCreds, role, res)
-    })(req,res,next);
-   };
-
-
-  exports.delete = (req, res) => {
-    req.logout();
-    res.redirect('/');
+  const logout = async (req, res) => {
+    try {
+      //delete the refresh token saved in database:
+      const { refreshToken } = req.body;
+      await Token.findOneAndDelete({ token: refreshToken });
+      return res.status(200).json({ success: "User logged out!" });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: "Internal Server Error!" });
+    }
   };
-  
+
   module.exports = {
     userAuth,
     checkRole,
     userLogin,
     userRegister,
-    serializeUser
+    serializeUser,
+    logout
   };

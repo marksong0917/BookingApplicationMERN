@@ -1,13 +1,13 @@
 const router = require("express").Router();
 // Bring in the User Registration function
-const {  delete: _delete } = require('../controllers/Auth');
 
 const {
   userAuth,
   userLogin,
   checkRole,
   userRegister,
-  serializeUser
+  serializeUser,
+  logout
 } = require("../controllers/Auth");
 
 // Users Registeration Route
@@ -40,8 +40,10 @@ router.post("/login-merchant", async (req, res) => {
   await userLogin(req.body, "merchant", res);
 });
 
-//logout
-// router.get('/logout', _delete);
+//@route DELETE /api/auth/logout
+router.delete("/logout", async (req, res) => {
+  await logout(req.body, res);
+});
 
 // Profile Route
 router.get("/profile", userAuth, async (req, res) => {
