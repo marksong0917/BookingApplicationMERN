@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // npm install react-router-dom
 import { Fragment } from 'react';
 
+//still didn't add pricing link
 function Nav() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,7 +22,7 @@ function Nav() {
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Services</Link>
+                        <Link to="/services" className="nav-link">Services</Link>
                     </li>
 
                     <li className="nav-item">
