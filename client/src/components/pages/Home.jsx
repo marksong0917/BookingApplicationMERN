@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 function Home () {
     return (
         <Fragment>
-           
+
+
                 <div className="banner">
                     <div className="container">
                         <div className="banner-content">
@@ -18,6 +19,7 @@ function Home () {
                         </div>
                     </div>
                 </div>
+                           
         </Fragment>
     );
 };

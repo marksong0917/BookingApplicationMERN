@@ -1,35 +1,42 @@
 const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
 
 // Merchant blueprint
 const MerchantSchema = new mongoose.Schema({
-    company_name: {
+        businessName: {
             type: String,
             required: true 
         },
-        owner_first: {
+        ownerFirst: {
             type: String,
-            required: false
+            required: true
         },
-        owner_last: {
+        ownerLast: {
             type: String,
-            required: false
+            required: true
         },
-        primary_address: {
+        ownerEmail: {
             type: String,
-            required: false
+            required: true
         },
-        primary_postalcode: {
+        address: {
             type: String,
-            required: false
+            required: true
         },
-        primary_province: {
+        city: {
             type: String,
-            required: false
+            required: true
         },
-        primary_phone: {
+        postalCode: {
             type: String,
-            required: false
+            required: true
+        },
+        province: {
+            type: String,
+            required: true
+        },
+        phone: {
+            type: String,
+            required: true
         },
         email: {
             type: String,
@@ -49,5 +56,16 @@ const MerchantSchema = new mongoose.Schema({
             getters: true
         }
 });
+
+MerchantSchema.query.draft = function() {
+    return this.where({
+        status: 'DRAFT'
+    })
+};
+MerchantSchema.query.published = function() {
+    return this.where({
+        status: 'PUBLISHED'
+    })
+};
 
 module.exports = mongoose.model('Merchant', MerchantSchema);

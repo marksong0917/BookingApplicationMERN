@@ -36,6 +36,7 @@ app.use(session({
 
 app.use(cors());
 app.use(bp.json());
+app.use(bp.urlencoded({ extended: true }));
 
 app.use(passport.initialize());
 
@@ -43,6 +44,7 @@ require("./middlewares/passport")(passport);
 
 // User Router Middleware
 app.use("/api/users", require("./routes/users"));
+app.use("/merchants", require("./routes/merchants"));
 
 
 /*

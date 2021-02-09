@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 function About () {
     return (
+
         <body>
-            
 
             <div className="banner">
                 <div className="container">
@@ -21,7 +21,7 @@ function About () {
                     </div>
                 </div>
             </div>
-                    </body>
+          </body>
     );
 }
 
