@@ -62,6 +62,7 @@ const Register = ({setUser}) => {
   
 
     return (
+      <Container className="my-5 my-container">
         <MDBContainer>
             <MDBRow>
                 <MDBCol md="6">
@@ -107,19 +108,20 @@ const Register = ({setUser}) => {
                         <Form.Control onChange={handleInputChange} value={inputs.password} type="password" id="defaultFormRegisterPasswordEx" className="form-control" name="password"/>
                         </Form.Group>
 
-                        <div className="text-center mt-4">
+                        <div className="btn btn-primary">
                             <MDBBtn color="cyan" type="submit">
                                 Register
                             </MDBBtn>
 
-                            <MDBBtn color="light-green" type="submit">
+                            {/* <MDBBtn color="light-green" type="submit">
                                 Clear
-                            </MDBBtn>
+                            </MDBBtn> */}
                         </div>
                     </Form>
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
+        </Container>
     );
   };
 export default Register;

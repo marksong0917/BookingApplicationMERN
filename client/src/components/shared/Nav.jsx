@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // npm install react-router-dom
 import { Fragment } from 'react';
 
-function Nav() {
+function Nav({user}) {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to="/" className="navbar-brand">App-point</Link>
@@ -34,13 +34,14 @@ function Nav() {
                 </ul>
 
                 <ul className="navbar-nav">
+                    {user ? (
                     <li className="nav-item">
                         <Link to="/logout" className="nav-link">
                             <i className="fa fa-sign-out"></i>
                             Logout
                         </Link>
                     </li>
-
+                    ) : (
                     <Fragment>
                     <li className="nav-item">
                         <Link to="/register-user" className="nav-link">
@@ -48,7 +49,7 @@ function Nav() {
                             Register
                         </Link>
                     </li>
-
+                    
                     <li className="nav-item">
                         <Link to="/login" className="nav-link">
                             <i className="fa fa-sign-in"></i>
@@ -56,7 +57,7 @@ function Nav() {
                         </Link>
                     </li>
                     </Fragment>
-
+                )}
                 </ul>
             </div>
 

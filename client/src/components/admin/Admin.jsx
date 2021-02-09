@@ -1,8 +1,15 @@
-import React, { Fragment } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
+import Axios from 'axios';
 function Admin () {
+
+  
+    // const getAdmin = async () => {
+    //   const resp = await Axios.get('/api/users/admin-protectd');
+    //   if (resp.status === 200) setAdmin(resp.data);
+    // };
+
     return (
         <Fragment>
-           
                 <div className="banner">
                     <div className="container">
                         <div className="banner-content">

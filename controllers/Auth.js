@@ -84,7 +84,7 @@ const userLogin = async (userCreds, role, res) => {
         email: user.email
       },
       SECRET,
-      { expiresIn: "3 hours" }
+      { expiresIn: "24 hours" }
     );
 
     let result = {
@@ -92,7 +92,7 @@ const userLogin = async (userCreds, role, res) => {
       role: user.role,
       email: user.email,
       token: `Bearer ${token}`,
-      expiresIn: 3
+      expiresIn: 24
     };
 
     return res.status(200).json({
@@ -135,8 +135,8 @@ const validateUsername = async username => {
     return {
       username: user.username,
       email: user.email,
-      firstname: user.firstname,
-      lastname: user.lastname,
+      firstName: user.firstName,
+      lastName: user.lastName,
       _id: user._id,
       updatedAt: user.updatedAt,
       createdAt: user.createdAt
@@ -154,6 +154,7 @@ const validateUsername = async username => {
       return res.status(500).json({ error: "Internal Server Error!" });
     }
   };
+
 
   module.exports = {
     userAuth,

@@ -46,7 +46,7 @@ const Login = ({setUser}) => {
     };
     if (redirect) return <Redirect to="/"/>
  return (
-        <Container className="my-5">
+        <Container className="my-5 my-container">
         <header>
         <h1>Login</h1>
         </header>
