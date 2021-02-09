@@ -54,7 +54,8 @@ const Login = ({setUser}) => {
         </header>
         <hr/>
 
-        <Form onSubmit={handleSubmit}>
+         <Form onSubmit={handleSubmit}>
+             
             <Form.Group>
                 <label htmlFor="username">Username:</label>
                 <Form.Control className="form-control" type="text" name="username" onChange={handleInputChange} value={inputs.email}/>
@@ -67,7 +68,8 @@ const Login = ({setUser}) => {
 
             <Form.Group>
                 <button className="btn btn-primary">Login</button>
-            </Form.Group>
+             </Form.Group>
+             
         </Form>
         </Container>
     );

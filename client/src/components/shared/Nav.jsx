@@ -21,15 +21,15 @@ function Nav() {
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Services</Link>
+                        <Link to="/services" className="nav-link">Services</Link>
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Pricing</Link>
+                        <Link to="/pricing" className="nav-link">Pricing</Link>
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Contact</Link>
+                        <Link to="/contact" className="nav-link">Contact</Link>
                     </li>
                 </ul>
 
