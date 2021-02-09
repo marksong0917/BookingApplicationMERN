@@ -4,6 +4,8 @@ import Axios from 'axios';
 import {Form, Container} from 'react-bootstrap';
 import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
+//import {handleResponse} from './helpers/handleResponse'
+
 
 const Login = ({setUser}) => {
     const [inputs, setInputs] = useState({
@@ -18,7 +20,7 @@ const Login = ({setUser}) => {
                 inputs);
                
             if (resp.status=== 200){
-                
+                // localStorage.setItem('token', token);
                 setUser(resp.data.user)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS
