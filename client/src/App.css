@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+/* mark test*/
+
+.flex-container {
+  display: flex;
+}
+
+.flex-child {
+  flex: 1;
+  border: 1px solid lightcyan;
+}
+
+.flex-child:first-child {
+  border: 1px solid lightskyblue;
+  margin-right: 20px;
+}
+
+body {
+  background: url("./assets/00001.jpg") no-repeat center center fixed;
+}
+
+.center2 {
+  text-align: center;
+}
+
+.color2 {
+  color: aqua;
+}
+.buttoninfo {
+  text-align: center;
+}
+
+/* mark test end */

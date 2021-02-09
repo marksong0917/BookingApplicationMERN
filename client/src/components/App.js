@@ -4,6 +4,7 @@ import Nav from './shared/Nav' // or wherever we put the nav file
 import Footer from './shared/Footer'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import '../App.css'
 
 function App() {
   const getUser = () => {

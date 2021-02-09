@@ -25,7 +25,7 @@ function Nav() {
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Pricing</Link>
+                        <Link to="/pricing" className="nav-link">Pricing</Link>
                     </li>
 
                     <li className="nav-item">
