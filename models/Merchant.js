@@ -2,15 +2,19 @@ const mongoose = require('mongoose');
 
 // Merchant blueprint
 const MerchantSchema = new mongoose.Schema({
-    company_name: {
+        businessName: {
             type: String,
             required: true 
         },
-        owner_first: {
+        ownerFirst: {
             type: String,
             required: true
         },
-        owner_last: {
+        ownerLast: {
+            type: String,
+            required: true
+        },
+        ownerEmail: {
             type: String,
             required: true
         },
@@ -22,7 +26,7 @@ const MerchantSchema = new mongoose.Schema({
             type: String,
             required: true
         },
-        postalcode: {
+        postalCode: {
             type: String,
             required: true
         },

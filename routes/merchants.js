@@ -9,27 +9,26 @@ const {
     deleteMerchant
 } = require("../controllers/Merchant")
 
-router.get("/", async (req, res) => {
-    await merchantList(req.body, res);
-  });
+router.get("/",  merchantList);
 
-router.get('/:id',async (req, res) => {
-    await findMerchant(req.body, res);
-  });
+router.get('/:id',findMerchant);
 
-router.post('/',userAuth,
-checkRole(["admin"]), async (req, res) => {
-    await createMerchant(req.body, res);
-  }); 
+router.post('/', createMerchant); 
+
+// router.post('/create-merchant', createMerchant); 
   
-router.post('/update',userAuth,
-checkRole(["merchant", "admin"]), async (req, res) => {
-      await updateMerchant(req.body, res);
-    }); 
+// router.post('/:id',userAuth,
+// checkRole(["merchant", "admin"]), async (req, res) => {
+//       await updateMerchant(req.body, res);
+//     }); 
 
-router.post('/delete',userAuth,
-checkRole(["admin"]), async (req, res) => {
-    await deleteMerchant(req.body, res);
-}); 
+    router.post('/:id', updateMerchant); 
+
+// router.post('/delete',userAuth,
+// checkRole(["admin"]), async (req, res) => {
+//     await deleteMerchant(req.body, res);
+// }); 
+
+router.post('/delete', deleteMerchant); 
 
 module.exports = router;

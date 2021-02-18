@@ -5,20 +5,19 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact'; 
 import Services from './pages/Services'; 
+import Pricing from './pages/Pricing' 
 import Login from './sessions/Login';
 import Register from './sessions/Register';
-import AdminLogin from './admin/AdminLogin'
-import Admin from './admin/Admin'
-
-//still didn't add pricing route
 function Routes ({user,setUser}) {
     return (
        <Switch>
            <Route exact path="/" component={Home}/>
+
           <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
-         <Route exact path="/services" component={Services}/>
-           <Route exact path="/login" render={
+        <Route exact path="/services" component={Services} />
+        <Route exact path="/pricing" component={Pricing}/>
+            <Route exact path="/login" render={
               renderProps => <Login
                 {...renderProps}
                 setUser={setUser}

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 function Contact () {
     return (
+                <body>
         <Fragment>
             <div className="banner">
                 <div className="container">
@@ -12,8 +13,7 @@ function Contact () {
                         <h1 className="header">
                             We are will answer back within 3 business days.
                             </h1>
-                        {/* TO DO MARK, CENTER THIS LINE  */}
-                        <h2>Simply fill out this form!</h2>
+                       <br/> <h2 class="center2" >Simply fill out this form!</h2>
                         <br />
 
                         <form>
@@ -47,7 +47,8 @@ function Contact () {
                                         </div>
                             </div> 
                     </div> 
-             </Fragment> 
+            </Fragment> 
+            </body>
     );
 };
 
