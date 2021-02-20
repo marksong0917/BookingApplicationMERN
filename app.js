@@ -45,7 +45,7 @@ require("./middlewares/passport")(passport);
 // User Router Middleware
 app.use("/api/users", require("./routes/users"));
 app.use("/merchants", require("./routes/merchants"));
-
+app.use("/bookings", require("./routes/bookings"))
 
 /*
  Start the server
