@@ -1,10 +1,12 @@
 import React from 'react';
-import {useState, createContext} from 'react';
+import {useState} from 'react';
 import Axios from 'axios';
 import {Form, Container} from 'react-bootstrap';
 import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
 //import {handleResponse} from './helpers/handleResponse'
+
+import {useToken, useTokenUpdate} from './TokenContext'
 
 // When users click login button, this page renders
 const Login = ({setUser}) => {
@@ -27,7 +29,8 @@ const Login = ({setUser}) => {
 
             //
             if (resp.status=== 200){
-                //localStorage.setItem('token', resp.data.);
+                //testing things
+                localStorage.setItem('userData', JSON.stringify(resp.data));
                 setUser(resp.data.user)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS

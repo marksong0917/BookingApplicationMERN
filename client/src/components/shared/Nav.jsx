@@ -5,6 +5,7 @@ import { Fragment } from 'react';
 import { useToken, useTokenUpdate } from '../sessions/TokenContext'
 
 //still didn't add pricing link
+// useContext can only be used in high level components and not inside function logic
 function Nav() {
     const token = useToken();
     return (
@@ -17,7 +18,7 @@ function Nav() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <Link to="/" className="nav-link"onClick={useTokenUpdate()}>Home {token}</Link>
+                        <Link to="/" className="nav-link" onClick={useTokenUpdate()}>Home {token}</Link>
                     </li>
 
                     <li className="nav-item">
