@@ -8,12 +8,14 @@ import Services from './pages/Services';
 import Pricing from './pages/Pricing' 
 import Login from './sessions/Login';
 import Register from './sessions/Register';
+
 function Routes ({user,setUser}) {
+
     return (
        <Switch>
-           <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={Home}/>
 
-          <Route exact path="/about" component={About} />
+        <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/services" component={Services} />
         <Route exact path="/pricing" component={Pricing}/>

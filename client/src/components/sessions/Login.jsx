@@ -1,26 +1,33 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, createContext} from 'react';
 import Axios from 'axios';
 import {Form, Container} from 'react-bootstrap';
 import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
 //import {handleResponse} from './helpers/handleResponse'
 
-
+// When users click login button, this page renders
 const Login = ({setUser}) => {
+
+    //create input states for username and password
     const [inputs, setInputs] = useState({
         username: '',
         password: ''   
-    }); 
+    });
+
+    //create state for redirect status
     const [redirect, setRedirect] = useState(false)
+
+    //when login form submitted
     const handleSubmit = async event => {
         event.preventDefault();
         try{
-                const resp = await Axios.post('/api/users/login-user', 
-                inputs);
-               
+            //post to the backend
+            const resp = await Axios.post('/api/users/login-user', inputs);
+
+            //
             if (resp.status=== 200){
-                // localStorage.setItem('token', token);
+                //localStorage.setItem('token', resp.data.);
                 setUser(resp.data.user)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS
@@ -28,7 +35,7 @@ const Login = ({setUser}) => {
                 setRedirect(true)
             } else {
                 console.log(resp.data.user);
-                toast('There was an issue logging you in. Please check your credentials', {
+                toast('There was an issue logging you in. Please check your credentialssss', {
                     type: toast.TYPE.ERROR
                 });
             }
@@ -67,7 +74,7 @@ const Login = ({setUser}) => {
             </Form.Group>
 
             <Form.Group>
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary" >Login</button>
              </Form.Group>
              
         </Form>

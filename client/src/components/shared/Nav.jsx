@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // npm install react-router-dom
 import { Fragment } from 'react';
 
+import { useToken, useTokenUpdate } from '../sessions/TokenContext'
+
 //still didn't add pricing link
 function Nav() {
+    const token = useToken();
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to="/" className="navbar-brand">App-point</Link>
@@ -14,7 +17,7 @@ function Nav() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Home</Link>
+                        <Link to="/" className="nav-link"onClick={useTokenUpdate()}>Home {token}</Link>
                     </li>
 
                     <li className="nav-item">
@@ -35,14 +38,14 @@ function Nav() {
                 </ul>
 
                 <ul className="navbar-nav">
-               
+            
                     <li className="nav-item">
                         <Link to="/logout" className="nav-link">
                             <i className="fa fa-sign-out"></i>
                             Logout
                         </Link>
                     </li>
-              
+
                     <Fragment>
                     <li className="nav-item">
                         <Link to="/register-user" className="nav-link">
