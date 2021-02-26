@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { Form, Container } from 'react-bootstrap';
 

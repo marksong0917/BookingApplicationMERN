@@ -2,25 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // npm install react-router-dom
 import { Fragment } from 'react';
 
-import { useToken, useTokenUpdate } from '../sessions/TokenContext'
+import { useToken } from '../sessions/TokenContext'
 
 //still didn't add pricing link
 // useContext can only be used in high level components and not inside function logic
 function Nav() {
+
     const token = useToken();
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to="/" className="navbar-brand">App-point</Link>
+            {/* token places here as an example */}
+            <Link to="/" className="navbar-brand">App-point {token}</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
-
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <Link to="/" className="nav-link" onClick={useTokenUpdate()}>Home {token}</Link>
+                        <Link to="/" className="nav-link" >Home</Link>
                     </li>
-
+                    
                     <li className="nav-item">
                         <Link to="/about" className="nav-link">About</Link>
                     </li>

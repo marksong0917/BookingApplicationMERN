@@ -6,8 +6,6 @@ import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
 //import {handleResponse} from './helpers/handleResponse'
 
-import {useToken, useTokenUpdate} from './TokenContext'
-
 // When users click login button, this page renders
 const Login = ({setUser}) => {
 
@@ -27,10 +25,10 @@ const Login = ({setUser}) => {
             //post to the backend
             const resp = await Axios.post('/api/users/login-user', inputs);
 
-            //
             if (resp.status=== 200){
                 //testing things
                 localStorage.setItem('userData', JSON.stringify(resp.data));
+                
                 setUser(resp.data.user)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS

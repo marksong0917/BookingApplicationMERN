@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, { useState } from 'react';
 import Routes from './Routes';
 import Nav from './shared/Nav' // or wherever we put the nav file
 import Footer from './shared/Footer'
