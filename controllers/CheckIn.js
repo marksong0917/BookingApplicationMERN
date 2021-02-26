@@ -1,6 +1,4 @@
 const CheckIn = require('../models/CheckIn')
-const { userAuth } = require("../controllers/Auth");
-const { response } = require('express');
 
 //retrive all Checked in items
 const checkinList =  async(req,res) => {
@@ -31,7 +29,6 @@ const findCheckIn = async(req,res)=>{
 
 // create check in item
 const createCheckIn= async(req,res) => {  
-    if (userAuth)
     try {
          const checkin= await CheckIn.create({ ...req.body });
          res.status(200).json(checkin);
