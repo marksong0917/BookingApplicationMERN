@@ -22,6 +22,4 @@ const MerchantCreate = (props) => {
     )
 }
     
-    
-
  export default MerchantCreate;

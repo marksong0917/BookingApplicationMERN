@@ -109,7 +109,7 @@ const Register = ({setUser}) => {
                         </Form.Group>
 
                         <div className="btn btn-primary">
-                            <MDBBtn color="cyan" type="submit">
+                            <MDBBtn type="submit">
                                 Register
                             </MDBBtn>
 
