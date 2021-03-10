@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // npm install react-router-dom
 import { Fragment } from 'react';
 
-import { useToken } from '../sessions/TokenContext'
+import { UseTokenContext } from '../sessions/TokenContext'
 
 //still didn't add pricing link
 // useContext can only be used in high level components and not inside function logic
 function Nav() {
 
-    const token = useToken();
+    const token = UseTokenContext();
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
