@@ -41,17 +41,17 @@ function Nav() {
                 </ul>
 
                 <ul className="navbar-nav">
-            
+                    {token.data ? (
                     <li className="nav-item">
                         <Link to="/logout" className="nav-link">
                             <i className="fa fa-sign-out"></i>
                             Logout
                         </Link>
                     </li>
-
+                    ) : (
                     <Fragment>
                     <li className="nav-item">
-                        <Link to="/register-user" className="nav-link">
+                        <Link to="/register-option" className="nav-link">
                             <i className="fa fa-user-plus"></i>
                             Register
                         </Link>
@@ -64,7 +64,7 @@ function Nav() {
                         </Link>
                     </li>
                     </Fragment>
-        
+                    )}
                 </ul>
             </div>
 

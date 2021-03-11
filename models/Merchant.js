@@ -2,26 +2,14 @@ const mongoose = require('mongoose');
 
 // Merchant blueprint
 const MerchantSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-      },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        },
         businessName: {
             type: String,
             required: true 
-        },
-        ownerFirst: {
-            type: String,
-            required: true
-        },
-        ownerLast: {
-            type: String,
-            required: true
-        },
-        ownerEmail: {
-            type: String,
-            required: true
         },
         address: {
             type: String,

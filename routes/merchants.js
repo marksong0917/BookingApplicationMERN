@@ -15,6 +15,9 @@ router.get('/:id',findMerchant);
 
 router.post('/', createMerchant); 
 
+router.post('/:id', updateMerchant); 
+
+router.post('/delete', deleteMerchant); 
 // router.post('/create-merchant', createMerchant); 
   
 // router.post('/:id',userAuth,
@@ -22,7 +25,6 @@ router.post('/', createMerchant);
 //       await updateMerchant(req.body, res);
 //     }); 
 
-    router.post('/:id', updateMerchant); 
 
 // router.post('/delete',userAuth,
 // checkRole(["admin"]), async (req, res) => {

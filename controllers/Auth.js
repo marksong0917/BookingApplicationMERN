@@ -36,10 +36,33 @@ const userRegister = async (userDets, role, res) => {
       password,
       role
     });
-
+    
     await newUser.save();
+
+    
+
+    let token = jwt.sign(
+      {
+        user_id: newUser._id,
+        role: newUser.role,
+        username: newUser.username,
+        email: newUser.email
+      },
+      SECRET,
+      { expiresIn: "24 hours" }
+    );
+
+    let result = {
+      username: newUser.username,
+      role: newUser.role,
+      email: newUser.email,
+      token: `Bearer ${token}`,
+      expiresIn: 24
+    };
+  
     return res.status(200).json({
-      message: "Hurry! now you are successfully registred. Please nor login.",
+      ...result,
+      message: "You are successfully registred and login. Please nor login.",
       success: true
     });
   } catch (err) {
