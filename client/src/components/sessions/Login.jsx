@@ -6,8 +6,12 @@ import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
 //import {handleResponse} from './helpers/handleResponse'
 
+import {UpdateTokenContext} from '../sessions/TokenContext'
+
 // When users click login button, this page renders
 const Login = ({setUser}) => {
+    const updateToken = UpdateTokenContext();
+
 
     //create input states for username and password
     const [inputs, setInputs] = useState({
@@ -54,7 +58,10 @@ const Login = ({setUser}) => {
         setInputs(inputs => ({...inputs, [name]: value}));
         console.log(inputs);
     };
-    if (redirect) return <Redirect to="/"/>
+    if (redirect) {
+        updateToken();
+        return <Redirect to="/"/>
+    }
  return (
         <Container className="my-5 my-container">
         <header>
