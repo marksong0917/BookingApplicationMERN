@@ -11,8 +11,8 @@ import { TokenProvider }from './sessions/TokenContext'
 
 function App() {
   const getUser = () => {
-    const userResp =  Axios.get('/api/users/profile');
-    if (userResp === 200) return JSON.parse(userResp.data);
+    const user = localStorage.getItem('user');
+    if (user) return JSON.parse(user);
     return false;
   }
   const [user, setUser] = useState(getUser());

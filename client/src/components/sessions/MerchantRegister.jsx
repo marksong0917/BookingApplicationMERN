@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
+import {UpdateTokenContext} from '../sessions/TokenContext'
 const Register = ({setUser}) => {
   const [inputs, setInputs] = useState({
     firstName: '',
@@ -16,6 +16,8 @@ const Register = ({setUser}) => {
     username: '',
     password: '',
   });
+
+  const updateToken = UpdateTokenContext();
 
   const [redirect, setRedirect] = useState(false);
 
@@ -57,6 +59,7 @@ const Register = ({setUser}) => {
   };
 
   if (redirect) {
+    updateToken();
     return (<Redirect to="/create-merchant"/>);
   } 
   
