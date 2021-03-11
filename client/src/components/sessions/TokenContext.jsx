@@ -1,4 +1,4 @@
-import { set } from 'mongoose';
+//import { set } from 'mongoose';
 import React, { useContext, useState } from 'react';
 
 // Create a contexts for variables and functions
@@ -30,7 +30,10 @@ export function TokenProvider({ children }) {
   })
 
   function updateToken() {
-    setToken(data.token);
+    if(data)
+      setToken(data.token);
+    else
+      setToken("no token")
   }
 
   // this prints to console once the TokenProvider loads in

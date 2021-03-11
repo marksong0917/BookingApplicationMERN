@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Services from './pages/Services'; 
 import Pricing from './pages/Pricing' 
 import Login from './sessions/Login';
+import Logout from './sessions/Logout';
 import Register from './sessions/Register';
 
 function Routes ({user,setUser}) {
@@ -19,6 +20,7 @@ function Routes ({user,setUser}) {
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/services" component={Services} />
         <Route exact path="/pricing" component={Pricing}/>
+        <Route exact path="/logout" component={Logout}/>
             <Route exact path="/login" render={
               renderProps => <Login
                 {...renderProps}

@@ -6,12 +6,8 @@ import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
 //import {handleResponse} from './helpers/handleResponse'
 
-import {UpdateTokenContext} from '../sessions/TokenContext'
-
 // When users click login button, this page renders
 const Login = ({setUser}) => {
-    const updateToken = UpdateTokenContext();
-
 
     //create input states for username and password
     const [inputs, setInputs] = useState({
@@ -29,7 +25,7 @@ const Login = ({setUser}) => {
             //post to the backend
             const resp = await Axios.post('/api/users/login-user', inputs);
 
-            if (resp.status=== 200){
+            if (resp.status === 200){
                 //testing things
                 localStorage.setItem('userData', JSON.stringify(resp.data));
                 
@@ -59,7 +55,6 @@ const Login = ({setUser}) => {
         console.log(inputs);
     };
     if (redirect) {
-        updateToken();
         return <Redirect to="/"/>
     }
  return (

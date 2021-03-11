@@ -6,6 +6,7 @@ import Axios from 'axios';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+
 //Get the token context
 import { TokenProvider }from './sessions/TokenContext'
 
@@ -21,7 +22,7 @@ function App() {
 
       <React.Fragment>
         <ToastContainer />
-        <TokenProvider>
+        <TokenProvider >
           <Nav />
           <Routes user={user} setUser = {setUser} />
         </TokenProvider>
