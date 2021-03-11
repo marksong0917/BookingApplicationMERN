@@ -23,7 +23,7 @@ const Logout = () => {
     })();
   }, []);
 
-  if (redirect) return (<Redirect to="/connections"/>);
+  if (redirect) return (<Redirect to="/"/>);
   return null;
 };
 
