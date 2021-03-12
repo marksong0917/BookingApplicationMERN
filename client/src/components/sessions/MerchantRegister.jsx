@@ -30,7 +30,8 @@ const Register = ({setUser}) => {
       if (resp.status === 200) {
         //setUser(resp.data.user);
         localStorage.setItem('userData', JSON.stringify(resp.data));
-        //setUser(resp.data.user)
+                
+        setUser(resp.data)
         toast('You have registered successfully and been logged in.', {
           type: toast.TYPE.SUCCESS
         });

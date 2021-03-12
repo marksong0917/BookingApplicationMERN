@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Routes from './Routes';
 import Nav from './shared/Nav' // or wherever we put the nav file
 import Footer from './shared/Footer'
-import Axios from 'axios';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -11,7 +10,7 @@ import { TokenProvider }from './sessions/TokenContext'
 
 function App() {
   const getUser = () => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem('userData');
     if (user) return JSON.parse(user);
     return false;
   }
@@ -22,7 +21,7 @@ function App() {
       <React.Fragment>
         <ToastContainer />
         <TokenProvider>
-          <Nav />
+          <Nav user={user}/>
           <Routes user={user} setUser = {setUser} />
         </TokenProvider>
         <Footer />

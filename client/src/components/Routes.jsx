@@ -12,6 +12,7 @@ import MerchantRegister from './sessions/MerchantRegister';
 import Message from './pages/Message'
 import CreateMerchant from './pages/CreateMerchant'
 import RegisterOption from './pages/RegisterOption'
+import Logout from './sessions/Logout';
 
 function Routes ({user,setUser}) {
 
@@ -29,6 +30,13 @@ function Routes ({user,setUser}) {
                 setUser={setUser}
               />
         }/>
+        <Route exact path="/logout" render={
+              renderProps => <Logout
+                {...renderProps}
+                setUser={setUser}
+              />
+            }/>
+            
         <Route exact path="/register-user" component={Register}/>
         <Route exact path="/register-merchant" component={MerchantRegister}/>
         <Route exact path="/create-merchant" component={CreateMerchant}/>
