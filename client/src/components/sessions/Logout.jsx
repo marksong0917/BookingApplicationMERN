@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+//import {UpdateTokenContext} from '../sessions/TokenContext'
+const Logout = ({setUser}) => {
 
-const Logout = () => {
-  console.log("didn't reach1")
   const [redirect, setRedirect] = useState(false);
-  //use effect waits for page renders to be complete
+  // const updateToken = UpdateTokenContext();
   useEffect(() => {
     //why is it async???
       try {
@@ -28,7 +28,7 @@ const Logout = () => {
       }
     }, []);
 
-  if (redirect) return (<Redirect to="/"/>);
+  if (redirect) { return (<Redirect to="/"/>);} 
   return null;
 };
 

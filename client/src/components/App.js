@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Routes from './Routes';
 import Nav from './shared/Nav' // or wherever we put the nav file
 import Footer from './shared/Footer'
-import Axios from 'axios';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -12,8 +11,8 @@ import { TokenProvider }from './sessions/TokenContext'
 
 function App() {
   const getUser = () => {
-    const userResp =  Axios.get('/api/users/profile');
-    if (userResp === 200) return JSON.parse(userResp.data);
+    const user = localStorage.getItem('userData');
+    if (user) return JSON.parse(user);
     return false;
   }
 
@@ -21,14 +20,15 @@ function App() {
 
   return (
     // Placing the Token context here allows the whole app to see the jwt
-    <React.Fragment>
-      <ToastContainer />
-      <TokenProvider >
-        <Nav />
-        <Routes user={user} setUser = {setUser} />
-      </TokenProvider>
-      <Footer />
-    </React.Fragment>
+      <React.Fragment>
+        <ToastContainer />
+        <TokenProvider>
+          <Nav user={user}/>
+          <Routes user={user} setUser = {setUser} />
+        </TokenProvider>
+        <Footer />
+      </React.Fragment>
+
   );
 }
 

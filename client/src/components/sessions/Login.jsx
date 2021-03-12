@@ -29,7 +29,7 @@ const Login = ({setUser}) => {
                 //testing things
                 localStorage.setItem('userData', JSON.stringify(resp.data));
                 
-                setUser(resp.data.user)
+                setUser(resp.data)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS
                 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, DeleteButton } from 'react-admin';
+import { List, Datagrid, TextField, EditButton, DeleteButton } from 'react-admin';
 
 
 const MerchantList = (props) => {

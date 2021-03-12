@@ -1,13 +1,13 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { Form, Container } from 'react-bootstrap';
-import {UpdateTokenContext} from '../sessions/TokenContext'
+
 
 import { useState } from 'react';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
+import {UpdateTokenContext} from '../sessions/TokenContext'
 const Register = ({setUser}) => {
   const [inputs, setInputs] = useState({
     firstName: '',
@@ -17,18 +17,20 @@ const Register = ({setUser}) => {
     password: '',
   });
 
+  const updateToken = UpdateTokenContext();
+
   const [redirect, setRedirect] = useState(false);
 
-  const updateToken = UpdateTokenContext();
   const handleSubmit = async event => {
     event.preventDefault();
 
     try {
-      const resp = await Axios.post('/api/users/register-user', inputs);
+      const resp = await Axios.post('/api/users/register-merchant', inputs);
       console.log(resp.status);
       if (resp.status === 200) {
         //setUser(resp.data.user);
-        localStorage.setItem('userData', JSON.stringify(resp.data));    
+        localStorage.setItem('userData', JSON.stringify(resp.data));
+                
         setUser(resp.data)
         toast('You have registered successfully and been logged in.', {
           type: toast.TYPE.SUCCESS
@@ -59,7 +61,7 @@ const Register = ({setUser}) => {
 
   if (redirect) {
     updateToken();
-    return (<Redirect to="/"/>);
+    return (<Redirect to="/create-merchant"/>);
   } 
   
 
@@ -69,7 +71,7 @@ const Register = ({setUser}) => {
             <MDBRow>
                 <MDBCol md="6">
                     <Form onSubmit={handleSubmit} > {/* add this once we can use onSubmit: onSubmit={handleSubmit} */}
-                        <p className="h4 text-center mb-4" >Register</p>
+                        <p className="h4 text-center mb-4" >Sign up as a merchant</p>
 
                         <Form.Group>
                             <label htmlFor="defaultFormRegisterNameEx" className="grey-text" name="firstName">
