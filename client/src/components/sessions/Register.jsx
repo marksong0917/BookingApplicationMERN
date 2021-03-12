@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { Form, Container } from 'react-bootstrap';
-
 
 
 import { useState } from 'react';
@@ -109,7 +108,7 @@ const Register = ({setUser}) => {
                         </Form.Group>
 
                         <div className="btn btn-primary">
-                            <MDBBtn color="cyan" type="submit">
+                            <MDBBtn type="submit">
                                 Register
                             </MDBBtn>
 

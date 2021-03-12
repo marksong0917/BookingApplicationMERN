@@ -6,21 +6,33 @@ import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
 //import {handleResponse} from './helpers/handleResponse'
 
+import {UpdateTokenContext} from '../sessions/TokenContext'
 
+// When users click login button, this page renders
 const Login = ({setUser}) => {
+    const updateToken = UpdateTokenContext();
+
+
+    //create input states for username and password
     const [inputs, setInputs] = useState({
         username: '',
         password: ''   
-    }); 
+    });
+
+    //create state for redirect status
     const [redirect, setRedirect] = useState(false)
+
+    //when login form submitted
     const handleSubmit = async event => {
         event.preventDefault();
         try{
-                const resp = await Axios.post('/api/users/login-user', 
-                inputs);
-               
+            //post to the backend
+            const resp = await Axios.post('/api/users/login-user', inputs);
+
             if (resp.status=== 200){
-                // localStorage.setItem('token', token);
+                //testing things
+                localStorage.setItem('userData', JSON.stringify(resp.data));
+                
                 setUser(resp.data.user)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS
@@ -28,7 +40,7 @@ const Login = ({setUser}) => {
                 setRedirect(true)
             } else {
                 console.log(resp.data.user);
-                toast('There was an issue logging you in. Please check your credentials', {
+                toast('There was an issue logging you in. Please check your credentialssss', {
                     type: toast.TYPE.ERROR
                 });
             }
@@ -46,7 +58,10 @@ const Login = ({setUser}) => {
         setInputs(inputs => ({...inputs, [name]: value}));
         console.log(inputs);
     };
-    if (redirect) return <Redirect to="/"/>
+    if (redirect) {
+        updateToken();
+        return <Redirect to="/"/>
+    }
  return (
         <Container className="my-5 my-container">
         <header>
@@ -67,7 +82,7 @@ const Login = ({setUser}) => {
             </Form.Group>
 
             <Form.Group>
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary" >Login</button>
              </Form.Group>
              
         </Form>
