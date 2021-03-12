@@ -16,19 +16,19 @@ function App() {
     if (userResp === 200) return JSON.parse(userResp.data);
     return false;
   }
+
   const [user, setUser] = useState(getUser());
+
   return (
     // Placing the Token context here allows the whole app to see the jwt
-
-      <React.Fragment>
-        <ToastContainer />
-        <TokenProvider >
-          <Nav />
-          <Routes user={user} setUser = {setUser} />
-        </TokenProvider>
-        <Footer />
-      </React.Fragment>
-
+    <React.Fragment>
+      <ToastContainer />
+      <TokenProvider >
+        <Nav />
+        <Routes user={user} setUser = {setUser} />
+      </TokenProvider>
+      <Footer />
+    </React.Fragment>
   );
 }
 

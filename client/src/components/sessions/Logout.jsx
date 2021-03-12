@@ -28,10 +28,7 @@ const Logout = () => {
       }
     }, []);
 
-  // this will never happen
-  if (redirect) {
-    return <Redirect to="/"/>;
-  }
+  if (redirect) return (<Redirect to="/"/>);
   return null;
 };
 
