@@ -14,7 +14,7 @@ function Home () {
                             <h4>Connect salon and consumers in 3s</h4>
                             <div className="btn-section" >
                                 <Link to="./about" className="btn-style">What We Do</Link>
-                                <Link to="./login" className="btn-style">Book Now</Link>
+                                <Link to="./booking" className="btn-style">Book Now</Link>
                             </div>  
                         </div>
                     </div>

@@ -13,6 +13,7 @@ import Message from './pages/Message'
 import CreateMerchant from './pages/CreateMerchant'
 import RegisterOption from './pages/RegisterOption'
 import Logout from './sessions/Logout';
+import Booking from './pages/Booking';
 
 function Routes ({user,setUser}) {
 
@@ -42,6 +43,7 @@ function Routes ({user,setUser}) {
         <Route exact path="/create-merchant" component={CreateMerchant}/>
         <Route exact path="/message" component={Message}/>
         <Route exact path="/register-option" component={RegisterOption}/>
+        <Route exact path="/booking" component={Booking} />
       </Switch> 
     );
 }
