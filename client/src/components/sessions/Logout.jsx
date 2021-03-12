@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
-
-const Logout = () => {
+//import {UpdateTokenContext} from '../sessions/TokenContext'
+const Logout = ({setUser}) => {
 
   const [redirect, setRedirect] = useState(false);
-
+  // const updateToken = UpdateTokenContext();
   useEffect(() => {
     (async () => {
       try {
@@ -23,7 +23,7 @@ const Logout = () => {
     })();
   }, []);
 
-  if (redirect) return (<Redirect to="/"/>);
+  if (redirect) { return (<Redirect to="/"/>);} 
   return null;
 };
 

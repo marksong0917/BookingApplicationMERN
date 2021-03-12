@@ -1,4 +1,4 @@
-import { set } from 'mongoose';
+
 import React, { useContext, useState } from 'react';
 
 // Create a contexts for variables and functions
@@ -17,6 +17,7 @@ export function UpdateTokenContext() {
 // Exports the TokenProvider component
 export function TokenProvider({ children }) {
   const data = JSON.parse(localStorage.getItem('userData'));
+
 
   // creates a token that is set by default or
   const [token, setToken] = useState(() =>{
