@@ -1,10 +1,7 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom';
-import { UseTokenContext } from '../sessions/TokenContext'
 
 function Home () {
-    const token = UseTokenContext();
-    console.log("Home Token: " + token )
     return (
         <Fragment>
             <div className="banner">

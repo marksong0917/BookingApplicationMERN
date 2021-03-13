@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const New = function () {
-
   const [inputs, setInputs] = useState({
     businessName: '',
     address: '',

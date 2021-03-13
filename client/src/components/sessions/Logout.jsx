@@ -14,6 +14,8 @@ const Logout = () => {
       try {
           localStorage.clear();
           const data = JSON.parse(localStorage.getItem('userData'));
+
+          //updating token state will refresh the navbar
           tokenUpdate(data);
           toast("You have successfully logged out", {
             type: toast.TYPE.SUCCESS

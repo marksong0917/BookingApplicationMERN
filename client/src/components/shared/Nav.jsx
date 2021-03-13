@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // npm install react-router-dom
 import { Fragment } from 'react';
-import { UseTokenContext, UseTokenUpdateContext } from '../sessions/TokenContext'
+import { UseTokenContext } from '../sessions/TokenContext'
 
 //still didn't add pricing link
 // useContext can only be used in high level components and not inside function logic
 function Nav() {
 
     const token = UseTokenContext();
-    
-    console.log("Nav Token: " + token);
-    // console.log("Nav Name: " + token.username);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             {/* token placed here as an example */}
@@ -36,7 +34,6 @@ function Nav() {
                         <Link to="/contact" className="nav-link">Contact</Link>
                     </li>
                 </ul>
-
                 <ul className="navbar-nav">       
                     {token ?  (
                     <Fragment>

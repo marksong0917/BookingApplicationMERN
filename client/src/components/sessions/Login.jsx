@@ -35,6 +35,7 @@ const updateToken = UseTokenUpdateContext();
 
                 //updating token state will refresh the navbar
                 updateToken(data);
+                
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS
                 });
