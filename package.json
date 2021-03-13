@@ -38,6 +38,8 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local-mongoose": "^6.1.0",
-    "react-datepicker": "^3.6.0"
+    "rc-time-picker": "^3.7.3",
+    "react-datepicker": "^3.6.0",
+    "react-time-picker": "^4.2.0"
   }
 }

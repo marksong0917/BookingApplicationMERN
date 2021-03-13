@@ -5,9 +5,9 @@ import { useState } from 'react';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
 import DatePicker from "react-datepicker"; // npm install react-datepicker (reference: https://www.npmjs.com/package/react-datepicker)
-import "react-datepicker/dist/react-datepicker.css"; // npm install react-datepicker
-
-
+import "react-datepicker/dist/react-datepicker.css"; // css for react-datepicker
+import TimePicker from "rc-time-picker"; // npm install react-time-picker rc-time-picker (reference: https://www.npmjs.com/package/rc-time-picker)
+import 'rc-time-picker/assets/index.css';// css for  rc-time-picker 
 
 const Booking = () => {
     const [inputs, setInputs] = useState({
@@ -55,6 +55,28 @@ const Booking = () => {
           [name]: value
         }));
       };
+    
+    /**
+     * Date Picker set up
+     */
+    // set up date picker variables
+    const [startDate, setStartDate] = useState(new Date());
+    // handle when the day changes
+    const handleDayChange = (date) => {
+        setStartDate(date);
+        inputs.date = JSON.stringify(date);
+    }
+
+    /**
+     * Time Picker set up
+     */
+    // set up time picker variables
+    const [time, setTime] = useState('');
+    // handle time value when it changes
+    const timeOnChange = (e) => {
+        setTime(e.format('LT'));
+        inputs.time = JSON.stringify(time);
+    }
 
 
     /**
@@ -68,15 +90,7 @@ const Booking = () => {
      //         console.log(data);
      //     })
      // }
-    //componentDidMount()
-      
-    // add date picker variables
-    const [startDate, setStartDate] = useState(new Date());
-    // handle when the day changes
-    const handleDayChange = (date) => {
-        setStartDate(date);
-        inputs.date = JSON.stringify(date);
-    }
+     //componentDidMount()
 
     return (
         
@@ -130,21 +144,32 @@ const Booking = () => {
                         </Form.Group>
                         </Form.Row>
 
-                        {/**Date */}
-                        <Form.Group>
-                            <label htmlFor="defaultFormRegisterEmailEx" className="grey-text" name="date">
-                                Date
-                            </label>
-                            <DatePicker selected={startDate} onChange={handleDayChange} />
-                        </Form.Group>
+                        <Form.Row>
+                            {/**Date */}
+                            <Form.Group as={MDBCol}>
+                                <label htmlFor="defaultFormRegisterEmailEx" className="grey-text" name="date">
+                                    Date
+                                </label>
+                                <br />
+                                <DatePicker selected={startDate} onChange={handleDayChange} />
+                            </Form.Group>
 
-                        {/**time -> needs to be in time format*/}
-                        <Form.Group>
-                            <label htmlFor="defaultFormRegisterEmailEx" className="grey-text" name="time">
-                                Time
-                            </label>
-                            <Form.Control onChange={handleInputChange} value={inputs.time} type="text" id="defaultFormRegisterEmailEx" className="form-control" name="time"/>
-                        </Form.Group>
+                            {/**time -> needs to be in time format*/}
+                            <Form.Group as={MDBCol}>
+                                <label htmlFor="defaultFormRegisterEmailEx" className="grey-text" name="time">
+                                    Time
+                                </label>
+                                <br />
+                                <TimePicker
+                                placeholder="Select Time"
+                                use12Hours
+                                showSecond={false}
+                                focusOnOpen={true}
+                                format="hh:mm A"
+                                onChange={timeOnChange}
+                                />
+                            </Form.Group>
+                        </Form.Row>
 
                         <Form.Row>
                         {/**Service*/}
