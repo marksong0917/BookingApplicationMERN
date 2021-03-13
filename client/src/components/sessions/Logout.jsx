@@ -3,32 +3,32 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
-//import {UpdateTokenContext} from '../sessions/TokenContext'
+import { UseTokenUpdateContext } from '../sessions/TokenContext';
+
 const Logout = ({setUser}) => {
+  const updateToken = UseTokenUpdateContext();
 
   const [redirect, setRedirect] = useState(false);
-  // const updateToken = UpdateTokenContext();
   useEffect(() => {
-    //why is it async???
+    (async () => {
       try {
-        // clear storage
-        localStorage.clear();
-        // set no user
-        //setUser(false);
-
-        // toast message
-        toast("You have successfully logged out", {
-          type: toast.TYPE.SUCCESS
-        });
-
-        // set redirect
-        setRedirect(true);
+          localStorage.clear();
+          setUser(false);
+          const data = JSON.parse(localStorage.getItem('userData'));
+          updateToken(data);
+          toast("You have successfully logged out", {
+            type: toast.TYPE.SUCCESS
+          });
+          setRedirect(true);
       } catch (error) {
         toast("There was an error while attempting to log you out", {type: toast.TYPE.ERROR});
       }
-    }, []);
+    })();
+  }, []);
 
-  if (redirect) { return (<Redirect to="/"/>);} 
+  if (redirect) { 
+    return (<Redirect to="/"/>);
+  } 
   return null;
 };
 

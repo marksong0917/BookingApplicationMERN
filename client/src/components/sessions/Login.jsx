@@ -5,9 +5,11 @@ import {Form, Container} from 'react-bootstrap';
 import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
 //import {handleResponse} from './helpers/handleResponse'
+import {UseTokenUpdateContext} from '../sessions/TokenContext';
 
 // When users click login button, this page renders
 const Login = ({setUser}) => {
+const updateToken = UseTokenUpdateContext();
 
     //create input states for username and password
     const [inputs, setInputs] = useState({
@@ -28,7 +30,11 @@ const Login = ({setUser}) => {
             if (resp.status === 200){
                 //testing things
                 localStorage.setItem('userData', JSON.stringify(resp.data));
-                
+                const data = JSON.parse(localStorage.getItem('userData'));
+
+                //updating token state will refresh the navbar
+                updateToken(data);
+
                 setUser(resp.data)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS
@@ -63,23 +69,18 @@ const Login = ({setUser}) => {
         <h1>Login</h1>
         </header>
         <hr/>
-
-         <Form onSubmit={handleSubmit}>
-             
+        <Form onSubmit={handleSubmit}>
             <Form.Group>
                 <label htmlFor="username">Username:</label>
                 <Form.Control className="form-control" type="text" name="username" onChange={handleInputChange} value={inputs.email}/>
             </Form.Group>
-
             <Form.Group>
                 <label htmlFor="password">Password:</label>
                 <input className="form-control" type="password" name="password" onChange={handleInputChange} value={inputs.password}/>
             </Form.Group>
-
             <Form.Group>
-                <button className="btn btn-primary" >Login</button>
-             </Form.Group>
-             
+                <button className="btn btn-primary">Login</button>
+            </Form.Group>
         </Form>
         </Container>
     );

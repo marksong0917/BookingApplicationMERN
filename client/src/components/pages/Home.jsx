@@ -1,15 +1,10 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { UpdateTokenContext } from '../sessions/TokenContext'
-
+import { UseTokenContext } from '../sessions/TokenContext'
 
 function Home () {
-    const updateToken = UpdateTokenContext();
-
-    //use effect will make the updateToken() take effect after nav has fully rendered
-    useEffect(() => {
-        updateToken();
-    })
+    const token = UseTokenContext();
+    console.log("Home Token: " + token )
     return (
         <Fragment>
             <div className="banner">
