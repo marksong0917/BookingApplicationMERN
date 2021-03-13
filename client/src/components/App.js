@@ -9,21 +9,13 @@ import 'react-toastify/dist/ReactToastify.css'
 import { TokenProvider}from './sessions/TokenContext'
 
 function App() {
-  const getUser = () => {
-    const user = localStorage.getItem('userData');
-    if (user) return JSON.parse(user);
-    return false;
-  }
-
-  const [user, setUser] = useState(getUser());
-  
   return (
     // Placing the Token context here allows the whole app to see the jwt
       <React.Fragment>
         <ToastContainer />
         <TokenProvider>
           <Nav/>
-          <Routes user={user} setUser = {setUser} />
+          <Routes/>
         </TokenProvider>
         <Footer />
       </React.Fragment>

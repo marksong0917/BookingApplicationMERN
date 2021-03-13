@@ -22,22 +22,23 @@ export function TokenProvider({ children }) {
     let token;
     //whenever nav loads, check if there is user data, if there's no user data, token is null and username is null
     if(data)
-      {
-        token = {
-            token: data.token,
-            username: data.username
-          };
-      }
+      token = data.token;
+    else 
+      token = null;
+    console.log("Context Token: " + token)
     return token;
   })
 
   // updating useState reloads the component that it is in. so whenever tokenUpdate is called, nav will reload
   function tokenUpdate(userData) {
     //if no user data, token set to null
-    if(userData)
+    if(userData){
+      console.log("hello? " + userData.token);
       setToken(userData.token);
-    else
-      setToken();
+    }
+    else{
+      setToken(null);
+    }
   }
 
   // this prints to console once the TokenProvider loads in

@@ -9,7 +9,7 @@ function Nav() {
 
     const token = UseTokenContext();
     
-    // console.log("Nav Token: " + token.token);
+    console.log("Nav Token: " + token);
     // console.log("Nav Name: " + token.username);
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,9 +38,9 @@ function Nav() {
                 </ul>
 
                 <ul className="navbar-nav">       
-                    {token.token ?  (
+                    {token ?  (
                     <Fragment>
-                    <li className="nav-item" >Hello {token.username} </li>   
+                    <li className="nav-item" >Hello </li>   
                     <li className="nav-item">
                             Logout
                         <Link to="/logout" className="nav-link" >

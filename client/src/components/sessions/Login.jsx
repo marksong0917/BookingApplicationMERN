@@ -28,14 +28,13 @@ const updateToken = UseTokenUpdateContext();
             const resp = await Axios.post('/api/users/login-user', inputs);
 
             if (resp.status === 200){
+                console.log("status " + resp.status)
                 //testing things
                 localStorage.setItem('userData', JSON.stringify(resp.data));
                 const data = JSON.parse(localStorage.getItem('userData'));
 
                 //updating token state will refresh the navbar
                 updateToken(data);
-
-                setUser(resp.data)
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS
                 });
