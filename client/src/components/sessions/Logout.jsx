@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { UseTokenUpdateContext } from '../sessions/TokenContext';
 
-const Logout = ({setUser}) => {
+const Logout = () => {
   const tokenUpdate = UseTokenUpdateContext();
 
   const [redirect, setRedirect] = useState(false);

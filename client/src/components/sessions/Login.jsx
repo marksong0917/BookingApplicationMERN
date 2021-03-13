@@ -8,7 +8,7 @@ import {toast} from 'react-toastify';
 import {UseTokenUpdateContext} from '../sessions/TokenContext';
 
 // When users click login button, this page renders
-const Login = ({setUser}) => {
+const Login = () => {
 const updateToken = UseTokenUpdateContext();
 
     //create input states for username and password
