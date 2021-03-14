@@ -15,6 +15,7 @@ function Home () {
                             <div className="btn-section" >
                                 <Link to="./about" className="btn-style">What We Do</Link>
                                 <Link to="./booking" className="btn-style">Book Now</Link>
+                                <Link to="./checkin" className="btn-style">Check In Now</Link>
                             </div>  
                         </div>
                     </div>

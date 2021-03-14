@@ -189,10 +189,10 @@ const Booking = () => {
                         </Form.Group>
                         </Form.Row>
 
-                        <div className="btn btn-primary">
-                            <MDBBtn type="submit">
-                                Book now!
-                            </MDBBtn>
+                        <div className= "formBtnDiv">
+                            <Form.Group>
+                                <button className="btn-style">Book Now!</button>
+                            </Form.Group>
                         </div>
 
                     </Form>

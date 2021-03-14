@@ -14,6 +14,7 @@ import CreateMerchant from './pages/CreateMerchant'
 import RegisterOption from './pages/RegisterOption'
 import Logout from './sessions/Logout';
 import Booking from './pages/Booking';
+import CheckIn from './pages/CheckIn';
 
 function Routes ({user,setUser}) {
 
@@ -44,6 +45,7 @@ function Routes ({user,setUser}) {
         <Route exact path="/message" component={Message}/>
         <Route exact path="/register-option" component={RegisterOption}/>
         <Route exact path="/booking" component={Booking} />
+        <Route exact path="/checkin" component={CheckIn} />
       </Switch> 
     );
 }
