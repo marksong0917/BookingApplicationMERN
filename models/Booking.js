@@ -34,6 +34,10 @@ const BookingSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    comments: {
+        type: String,
+        required: true
+    },
     status: { 
         type: String,
         enum: ['PENDING', 'APPROVED', 'DENIED'],

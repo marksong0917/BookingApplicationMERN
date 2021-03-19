@@ -239,3 +239,11 @@ body {
   display: block;
   position: relative;
 }
+
+label {
+  color:antiquewhite;
+}
+
+.formBtnDiv {
+  margin-left: 40%;
+}

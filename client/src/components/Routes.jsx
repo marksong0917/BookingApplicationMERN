@@ -13,6 +13,12 @@ import MerchantRegister from './sessions/MerchantRegister';
 import Message from './pages/Message'
 import CreateMerchant from './pages/CreateMerchant'
 import RegisterOption from './pages/RegisterOption'
+import Booking from './pages/Booking';
+import CheckIn from './pages/CheckIn';
+import CheckInInstructions from './pages/CheckInInstructions';
+import BookingInstructions from './pages/BookingInstructions';
+
+//function Routes ({user,setUser}) {
 
 function Routes () {
     return (
@@ -29,6 +35,10 @@ function Routes () {
         <Route exact path="/create-merchant" component={CreateMerchant}/>
         <Route exact path="/message" component={Message}/>
         <Route exact path="/register-option" component={RegisterOption}/>
+        <Route exact path="/booking" component={Booking} />
+        <Route exact path="/checkin" component={CheckIn} />
+        <Route exact path="/checkininstructions" component={CheckInInstructions} />
+        <Route exact path="/BookingInstructions" component={BookingInstructions} />
       </Switch> 
     );
 }

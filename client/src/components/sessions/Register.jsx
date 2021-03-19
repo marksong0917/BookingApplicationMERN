@@ -68,14 +68,14 @@ const Register = ({setUser}) => {
         <MDBContainer>
             <MDBRow>
                 <MDBCol md="6">
-                    <Form onSubmit={handleSubmit} > {/* add this once we can use onSubmit: onSubmit={handleSubmit} */}
+                    <Form onSubmit={handleSubmit} > 
                         <p className="h4 text-center mb-4" >Register</p>
 
                         <Form.Group>
                             <label htmlFor="defaultFormRegisterNameEx" className="grey-text" name="firstName">
                                 First Name
                             </label>
-                            {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.firstName} */}
+
                             <Form.Control onChange={handleInputChange} value={inputs.firstName} type="text" id="defaultFormRegisterNameEx" className="form-control" name="firstName"/>
                         </Form.Group>
 
@@ -83,14 +83,14 @@ const Register = ({setUser}) => {
                         <label htmlFor="defaultFormRegisterNameEx" className="grey-text" name="lastName">
                             Last Name
                         </label>
-                        {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.lastName} */}
+
                         <Form.Control onChange={handleInputChange} value={inputs.lastName} type="text" id="defaultFormRegisterNameEx" className="form-control" name="lastName"/>
                         </Form.Group>
                         <Form.Group>
                         <label htmlFor="defaultFormRegisterEmailEx" className="grey-text" name="email">
                             Your email
                         </label>
-                        {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.email} */}
+
                         <Form.Control onChange={handleInputChange} value={inputs.email} type="email" id="defaultFormRegisterEmailEx" className="form-control" name="email"/>
                         </Form.Group>
 
@@ -98,7 +98,7 @@ const Register = ({setUser}) => {
                         <label htmlFor="defaultFormRegisterNameEx" className="grey-text" name="username">
                             Username
                         </label>
-                        {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.lastName} */}
+
                         <Form.Control onChange={handleInputChange} value={inputs.username} type="text" id="defaultFormRegisterNameEx" className="form-control" name="username"/>
                         </Form.Group>
 
@@ -106,7 +106,7 @@ const Register = ({setUser}) => {
                         <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
                             Your password
                         </label>
-                        {/**need to add this to the form control below: onChange={handleInputChange} value={inputs.password} */}
+    
                         <Form.Control onChange={handleInputChange} value={inputs.password} type="password" id="defaultFormRegisterPasswordEx" className="form-control" name="password"/>
                         </Form.Group>
 
@@ -115,9 +115,6 @@ const Register = ({setUser}) => {
                                 Register
                             </MDBBtn>
 
-                            {/* <MDBBtn color="light-green" type="submit">
-                                Clear
-                            </MDBBtn> */}
                         </div>
                     </Form>
                 </MDBCol>

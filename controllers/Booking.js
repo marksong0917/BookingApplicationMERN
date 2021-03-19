@@ -1,6 +1,4 @@
 const Booking = require('../models/Booking')
-const { userAuth } = require("../controllers/Auth");
-const { response } = require('express');
 
 //retrive all booking
 const bookingList =  async(req,res) => {
@@ -31,7 +29,6 @@ const findBooking = async(req,res)=>{
 
 // Create an appointnent
 const createBooking= async(req,res) => {  
-    if (userAuth)
     try {
          const booking= await Booking.create({ ...req.body });
          res.status(200).json(booking);
