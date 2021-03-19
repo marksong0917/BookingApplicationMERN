@@ -25,6 +25,28 @@ const Booking = () => {
 
     const [redirect, setRedirect] = useState(false);
 
+    /**
+     * Date Picker set up
+     */
+    // set up date picker variables
+    const [startDate, setStartDate] = useState(new Date());
+    // handle when the day changes
+    const handleDayChange = (date) => {
+        setStartDate(date);
+        inputs.date = JSON.stringify(date);
+    }
+
+    /**
+     * Time Picker set up
+     */
+    // set up time picker variables
+    const [time, setTime] = useState('');
+    // handle time value when it changes
+    const timeOnChange = (e) => {
+        setTime(e.format('LT'));
+        inputs.time = JSON.stringify(time);
+    }
+
     const handleSubmit = async event => {
         event.preventDefault();
         try {
@@ -57,32 +79,10 @@ const Booking = () => {
         }));
      };
      
-     // cannot get redirect working *STILL WORKING ON THIS*
-     //if (redirect) {
-     //   return <Redirect to="/BookingInstructions"/>
-     //}
+     if (redirect) {
+        return <Redirect to="/BookingInstructions"/>
+     }
     
-    /**
-     * Date Picker set up
-     */
-    // set up date picker variables
-    const [startDate, setStartDate] = useState(new Date());
-    // handle when the day changes
-    const handleDayChange = (date) => {
-        setStartDate(date);
-        inputs.date = JSON.stringify(date);
-    }
-
-    /**
-     * Time Picker set up
-     */
-    // set up time picker variables
-    const [time, setTime] = useState('');
-    // handle time value when it changes
-    const timeOnChange = (e) => {
-        setTime(e.format('LT'));
-        inputs.time = JSON.stringify(time);
-    }
 
 
     /**
