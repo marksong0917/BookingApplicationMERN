@@ -15,6 +15,8 @@ import RegisterOption from './pages/RegisterOption'
 import Logout from './sessions/Logout';
 import Booking from './pages/Booking';
 import CheckIn from './pages/CheckIn';
+import CheckInInstructions from './pages/CheckInInstructions';
+import BookingInstructions from './pages/BookingInstructions';
 
 function Routes ({user,setUser}) {
 
@@ -46,6 +48,8 @@ function Routes ({user,setUser}) {
         <Route exact path="/register-option" component={RegisterOption}/>
         <Route exact path="/booking" component={Booking} />
         <Route exact path="/checkin" component={CheckIn} />
+        <Route exact path="/checkininstructions" component={CheckInInstructions} />
+        <Route exact path="/BookingInstructions" component={BookingInstructions} />
       </Switch> 
     );
 }

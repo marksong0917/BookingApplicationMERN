@@ -1,9 +1,10 @@
 import React from "react";
-import { MDBCol, MDBBtn } from 'mdbreact';
+import { MDBCol } from 'mdbreact';
 import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
+import  { Redirect } from 'react-router-dom'
 
 const CheckIn = () => {
     const [inputs, setInputs] = useState({
@@ -31,8 +32,13 @@ const CheckIn = () => {
             toast("There was an issue checking you in.", {
               type: toast.TYPE.ERROR
             });
+            console.log(error)
           }
     };
+
+    if (redirect) {
+        return <Redirect to="/CheckInInstructions"/>
+    }
 
     const handleInputChange = event => {
         event.persist();

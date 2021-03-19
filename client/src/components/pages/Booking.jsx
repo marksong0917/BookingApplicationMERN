@@ -1,9 +1,10 @@
 import React from "react";
-import { MDBCol, MDBBtn } from 'mdbreact';
+import { MDBCol } from 'mdbreact';
 import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
+import  { Redirect } from 'react-router-dom'
 import DatePicker from "react-datepicker"; // npm install react-datepicker (reference: https://www.npmjs.com/package/react-datepicker)
 import "react-datepicker/dist/react-datepicker.css"; // css for react-datepicker
 import TimePicker from "rc-time-picker"; // npm install react-time-picker rc-time-picker (reference: https://www.npmjs.com/package/rc-time-picker)
@@ -54,7 +55,12 @@ const Booking = () => {
           ...inputs,
           [name]: value
         }));
-      };
+     };
+     
+     // cannot get redirect working *STILL WORKING ON THIS*
+     //if (redirect) {
+     //   return <Redirect to="/BookingInstructions"/>
+     //}
     
     /**
      * Date Picker set up
