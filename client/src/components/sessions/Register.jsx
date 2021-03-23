@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { Form, Container } from 'react-bootstrap';
-import {UseTokenUpdateContext} from '../sessions/TokenContext'
+import { UseUserUpdateContext } from './UserContext'
 
 import { useState } from 'react';
 import Axios from 'axios';
@@ -19,7 +19,7 @@ const Register = ({setUser}) => {
 
   const [redirect, setRedirect] = useState(false);
 
-  const updateToken = UseTokenUpdateContext();
+  const updateToken = UseUserUpdateContext();
   const handleSubmit = async event => {
     event.preventDefault();
 

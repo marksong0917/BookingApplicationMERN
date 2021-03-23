@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {UseTokenUpdateContext} from '../sessions/TokenContext'
+import {UseUserUpdateContext} from './UserContext'
 const Register = ({setUser}) => {
   const [inputs, setInputs] = useState({
     firstName: '',
@@ -17,7 +17,7 @@ const Register = ({setUser}) => {
     password: '',
   });
 
-  const updateToken = UseTokenUpdateContext();
+  const updateToken = UseUserUpdateContext();
 
   const [redirect, setRedirect] = useState(false);
 

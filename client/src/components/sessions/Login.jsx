@@ -5,11 +5,11 @@ import {Form, Container} from 'react-bootstrap';
 import {Redirect} from 'react-router-dom'
 import {toast} from 'react-toastify';
 //import {handleResponse} from './helpers/handleResponse'
-import {UseTokenUpdateContext} from '../sessions/TokenContext';
+import {UseUserUpdateContext} from './UserContext';
 
 // When users click login button, this page renders
 const Login = () => {
-const updateToken = UseTokenUpdateContext();
+const updateUser = UseUserUpdateContext();
 
     //create input states for username and password
     const [inputs, setInputs] = useState({
@@ -34,7 +34,7 @@ const updateToken = UseTokenUpdateContext();
                 const data = JSON.parse(localStorage.getItem('userData'));
 
                 //updating token state will refresh the navbar
-                updateToken(data);
+                updateUser(data);
                 
                 toast('You have logged in successfully', {
                     type: toast.TYPE.SUCCESS

@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 //Get the token context
-import { TokenProvider}from './sessions/TokenContext'
+import { TokenProvider}from './sessions/UserContext'
 
 function App() {
   return (

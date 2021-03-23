@@ -1,40 +1,40 @@
 import React, { useContext, useState } from 'react';
 
 // Create a contexts for variables and functions
-const TokenContext = React.createContext();
-const TokenUpdateContext = React.createContext();
+const UserContext = React.createContext();
+const UserUpdateContext = React.createContext();
 
 // export token, exported context hooks should be Pascal case
-export function UseTokenContext() {
-  return useContext(TokenContext)
+export function UseUserContext() {
+  return useContext(UserContext)
 }
 
 // export tokenUpdate function
-export function UseTokenUpdateContext() {
-  return useContext(TokenUpdateContext)
+export function UseUserUpdateContext() {
+  return useContext(UserUpdateContext)
 }
 
 // export the TokenProvider component
 export function TokenProvider({ children }) {
-  const data = JSON.parse(localStorage.getItem('userData'));
+  const dataStore = JSON.parse(localStorage.getItem('userData'));
   // set a token state for the whole application
-  const [token, setToken] = useState(() =>{
-    let token;
+  const [user, setUser] = useState(() =>{
+    let inData;
     //whenever nav loads, check if there is user data, if there's no user data, token is null and username is null
-    if(data)
-      token = data.token;
+    if(dataStore)
+      inData = dataStore;
     else
-      token = null;
-    return token;
+      inData = null;
+    return inData;
   })
 
   // updating useState reloads the component that it is in. so whenever tokenUpdate is called, nav will reload
-  function tokenUpdate(userData) {
+  function userUpdate(userData) {
     //if no user data, token set to null
     if(userData)
-      setToken(userData.token);
+      setUser(userData);
     else
-      setToken(null);
+      setUser(null);
   }
 
   // this prints to console once the TokenProvider loads in
@@ -42,10 +42,10 @@ export function TokenProvider({ children }) {
 
   // The TokenContext.Provider gives a component that persists the value and functions
   return (
-    <TokenContext.Provider value={token}>
-      <TokenUpdateContext.Provider value={tokenUpdate}>
+    <UserContext.Provider value={user}>
+      <UserUpdateContext.Provider value={userUpdate}>
       { children }
-      </TokenUpdateContext.Provider>
-    </TokenContext.Provider>
+      </UserUpdateContext.Provider>
+    </UserContext.Provider>
   );
 }

@@ -12,15 +12,15 @@ import 'rc-time-picker/assets/index.css';// css for  rc-time-picker
 
 const Booking = () => {
     const [inputs, setInputs] = useState({
-      merchantId: '',
-      firstName: '',
-      lastName: '',
-      phone: '',
-      email: '',
-      date: '',
-      time: '',
-      service: '',
-      comments: '',
+        merchantId: '',
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        date: '',
+        time: '',
+        service: '',
+        comments: '',
     });
 
     const [redirect, setRedirect] = useState(false);
@@ -59,13 +59,13 @@ const Booking = () => {
             } else {
                 toast(resp.status + "There was an issue booking you.", {
                     type: toast.TYPE.ERROR
-                  });
+                });
             }
         } catch (error) {
             toast("There was an issue booking you.", {
-              type: toast.TYPE.ERROR
+                type: toast.TYPE.ERROR
             });
-          }
+        }
     };
 
     const handleInputChange = event => {
@@ -74,14 +74,14 @@ const Booking = () => {
         const {name, value} = event.target;
     
         setInputs(inputs => ({
-          ...inputs,
-          [name]: value
+            ...inputs,
+            [name]: value
         }));
-     };
-     
-     if (redirect) {
+    };
+    
+    if (redirect) {
         return <Redirect to="/BookingInstructions"/>
-     }
+    }
     
 
 
